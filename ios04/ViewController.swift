@@ -60,9 +60,8 @@ class ViewController: UIViewController {
             number.text = "\(sum)"
             
         case 4:
-            if number.text=="0"
-            {
-                break
+            if number.text=="0" {
+                number.text = "\("错误")"
             }else{
                 sum = temp / Int(number.text!)!
                 number.text = "\(sum)"
