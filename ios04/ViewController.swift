@@ -72,34 +72,37 @@ class ViewController: UIViewController {
             break
         }
     }
-    @IBAction func subtract(_ sender: Any){
-        flag = 2
-        temp = Int(number.text!)!
-        number.text = ""
-    }
-    @IBAction func ride(_ sender: Any) {
-        flag = 3
-        temp = Int(number.text!)!
-        number.text = ""
-    }
     @IBAction func puls(_ sender: Any) {
         flag = 1
         temp = Int(number.text!)!
         number.text = ""
     }
+    
+    @IBAction func subtract(_ sender: Any){
+        flag = 2
+        temp = Int(number.text!)!
+        number.text = ""
+    }
+    
+    @IBAction func ride(_ sender: Any) {
+        flag = 3
+        temp = Int(number.text!)!
+        number.text = ""
+    }
+    
     @IBAction func divide(_ sender: Any) {
         flag = 4
         temp = Int(number.text!)!
         number.text = ""
     }
+    
     @IBAction func Delete(_ sender: Any) {
         number.text = ""
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-
 }
 
