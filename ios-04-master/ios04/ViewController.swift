@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var temp1 : Int = 0
     var temp2 : Double = 0
     var flag = 0
+    var flag1 = 0
     var i = 0
     var j = 0
     var k = 0
@@ -87,43 +88,110 @@ class ViewController: UIViewController {
     }
     @IBAction func puls(_ sender: Any) {
         flag = 1
-        temp = temp + Double(number.text!)!
+        if i == 0{
+            temp = Double(number.text!)!
+            i = 1
+        }else{
+            switch flag1 {
+            case 1:
+                temp += Double(number.text!)!
+                break
+            case 2:
+                temp -= Double(number.text!)!
+                break
+            case 3:
+                temp *= Double(number.text!)!
+                break
+            case 4:
+                temp /= Double(number.text!)!
+                break
+            default:
+                break
+            }
+        }
         number.text = ""
+        flag1 = 1
     }
     
     @IBAction func subtract(_ sender: Any){
         flag = 2
-        
         if i == 0{
             temp = Double(number.text!)!
-            i =  1
-        }else if i==1 {
-            temp -= Double(number.text!)!
+            i = 1
+        }else{
+            switch flag1 {
+            case 1:
+                temp += Double(number.text!)!
+                break
+            case 2:
+                temp -= Double(number.text!)!
+                break
+            case 3:
+                temp *= Double(number.text!)!
+                break
+            case 4:
+                temp /= Double(number.text!)!
+                break
+            default:
+                break
+            }
         }
         number.text = ""
+        flag1 = 2
     }
     
     @IBAction func ride(_ sender: Any) {
         flag = 3
-        if j == 0{
+        if i == 0{
             temp = Double(number.text!)!
-            j = 1
+            i = 1
         }else{
-            temp = temp * Double(number.text!)!
+            switch flag1 {
+            case 1:
+                temp += Double(number.text!)!
+                break
+            case 2:
+                temp -= Double(number.text!)!
+                break
+            case 3:
+                temp *= Double(number.text!)!
+                break
+            case 4:
+                temp /= Double(number.text!)!
+                break
+            default:
+                break
+            }
         }
         number.text = ""
+        flag1 = 3
     }
     
     @IBAction func divide(_ sender: Any) {
         flag = 4
-        if k == 0{
+        if i == 0{
             temp = Double(number.text!)!
-            k = 1
+            i = 1
         }else{
-            temp = temp / Double(number.text!)!
+            switch flag1 {
+            case 1:
+                temp += Double(number.text!)!
+                break
+            case 2:
+                temp -= Double(number.text!)!
+                break
+            case 3:
+                temp *= Double(number.text!)!
+                break
+            case 4:
+                temp /= Double(number.text!)!
+                break
+            default:
+                break
+            }
         }
-        temp = temp / Double(number.text!)!
         number.text = ""
+        flag1 = 4
     }
     @IBAction func dot(_ sender: Any) {
         flag = 5
@@ -164,7 +232,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
