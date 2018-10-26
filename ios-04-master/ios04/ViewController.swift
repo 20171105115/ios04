@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     var temp2 : Double = 0
     var flag = 0
     var flag1 = 0
+    var FlagDot = 0
+    var CalFlag = 0
     var i = 0
     var j = 0
     var k = 0
@@ -22,35 +24,86 @@ class ViewController: UIViewController {
     @IBOutlet weak var number: UITextField!
     
     @IBAction func Num1(_ sender: Any) {
-        number.text = number.text!+"1"
+        if CalFlag == 1 {
+            number.text = "1"
+        }else{
+            number.text = number.text!+"1"
+        }
+        CalFlag = 0
     }
     @IBAction func Nnm2(_ sender: Any) {
-        number.text = number.text!+"2"
+        if CalFlag == 1 {
+            number.text = "2"
+        }else{
+            number.text = number.text!+"2"
+        }
+        CalFlag = 0
     }
     @IBAction func Num3(_ sender: Any) {
-        number.text = number.text!+"3"
+        if CalFlag == 1 {
+            number.text = "3"
+        }else{
+            number.text = number.text!+"3"
+        }
+        CalFlag = 0
     }
     @IBAction func Sum4(_ sender: Any) {
-        number.text = number.text!+"4"
+        if CalFlag == 1 {
+            number.text = "4"
+        }else{
+            number.text = number.text!+"4"
+        }
+        CalFlag = 0
     }
     @IBAction func Sum5(_ sender: Any) {
-        number.text = number.text!+"5"
+        if CalFlag == 1 {
+            number.text = "5"
+        }else{
+            number.text = number.text!+"5"
+        }
+        CalFlag = 0
     }
     @IBAction func Sum6(_ sender: Any) {
-        number.text = number.text!+"6"
+        if CalFlag == 1 {
+            number.text = "6"
+        }else{
+            number.text = number.text!+"6"
+        }
+        CalFlag = 0
     }
     @IBAction func Num7(_ sender: Any) {
-        number.text = number.text!+"7"
+        if CalFlag == 1 {
+            number.text = "7"
+        }else{
+            number.text = number.text!+"7"
+        }
+        CalFlag = 0
     }
     @IBAction func Num8(_ sender: Any) {
-        number.text = number.text!+"8"
+        if CalFlag == 1 {
+            number.text = "8"
+        }else{
+            number.text = number.text!+"8"
+        }
+        CalFlag = 0
     }
     @IBAction func Num9(_ sender: Any) {
-        number.text = number.text!+"9"
+        if CalFlag == 1 {
+            number.text = "9"
+        }else{
+            number.text = number.text!+"9"
+        }
+        CalFlag = 0
     }
     @IBAction func Num0(_ sender: Any) {
-        number.text = number.text!+"0"
+        if CalFlag == 1 {
+            number.text = "0"
+        }else{
+            number.text = number.text!+"0"
+        }
+        CalFlag = 0
     }
+    
     @IBAction func equal(_ sender: Any) {
         var sum : Double = 0
         switch flag {
@@ -79,15 +132,17 @@ class ViewController: UIViewController {
                 temp = sum
             }
         case 5:
-            sum = temp + Double(number.text!)!*0.1
+            sum = pow(temp, Double(number.text!)!)
             number.text = "\(sum)"
-
+            temp = sum
         default:
             break
         }
     }
+    
     @IBAction func puls(_ sender: Any) {
         flag = 1
+        CalFlag = 1
         if i == 0{
             temp = Double(number.text!)!
             i = 1
@@ -109,12 +164,13 @@ class ViewController: UIViewController {
                 break
             }
         }
-        number.text = ""
+        number.text = "\(temp)"
         flag1 = 1
     }
     
     @IBAction func subtract(_ sender: Any){
         flag = 2
+        CalFlag = 1
         if i == 0{
             temp = Double(number.text!)!
             i = 1
@@ -136,12 +192,13 @@ class ViewController: UIViewController {
                 break
             }
         }
-        number.text = ""
+        number.text = "\(temp)"
         flag1 = 2
     }
     
     @IBAction func ride(_ sender: Any) {
         flag = 3
+        CalFlag = 1
         if i == 0{
             temp = Double(number.text!)!
             i = 1
@@ -163,12 +220,13 @@ class ViewController: UIViewController {
                 break
             }
         }
-        number.text = ""
+        number.text = "\(temp)"
         flag1 = 3
     }
     
     @IBAction func divide(_ sender: Any) {
         flag = 4
+        CalFlag = 1
         if i == 0{
             temp = Double(number.text!)!
             i = 1
@@ -190,13 +248,21 @@ class ViewController: UIViewController {
                 break
             }
         }
-        number.text = ""
+        number.text = "\(temp)"
         flag1 = 4
     }
-    @IBAction func dot(_ sender: Any) {
+    
+    @IBAction func power(_ sender: Any) {
         flag = 5
+        CalFlag = 1
         temp = Double(number.text!)!
-        number.text = ""
+        number.text = "^"
+    }
+    
+    @IBAction func dot(_ sender: Any) {
+        if FlagDot == 0{
+            number.text = number.text!+"."
+        }
     }
     
     @IBAction func sign(_ sender: Any) {
@@ -213,7 +279,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Delete(_ sender: Any) {
-        number.text = ""
+        number.text = "0"
+        CalFlag = 1
         temp = 0
         i = 0
         j = 0
