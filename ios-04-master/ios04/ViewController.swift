@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var flag1 = 0
     var FlagDot = 0
     var CalFlag = 0
+    var sum : Double = 0
     var i = 0
     var j = 0
     var k = 0
@@ -105,23 +106,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equal(_ sender: Any) {
-        var sum : Double = 0
+        
         switch flag {
         
         case 1:
             sum = temp + Double(number.text!)!
             number.text = "\(sum)"
             temp = sum
+            CalFlag = 1
             
         case 2:
             sum = temp - Double(number.text!)!
             number.text = "\(sum)"
             temp = sum
+            CalFlag = 1
             
         case 3:
             sum = temp * Double(number.text!)!
             number.text = "\(sum)"
             temp = sum
+            CalFlag = 1
             
         case 4:
             if number.text=="0" {
@@ -130,11 +134,13 @@ class ViewController: UIViewController {
                 sum = temp / Double(number.text!)!
                 number.text = "\(sum)"
                 temp = sum
+                CalFlag = 1
             }
         case 5:
             sum = pow(temp, Double(number.text!)!)
             number.text = "\(sum)"
             temp = sum
+            CalFlag = 1
         default:
             break
         }
@@ -289,7 +295,14 @@ class ViewController: UIViewController {
     @IBAction func delete1(_ sender: Any) {
         if number.text == ""{
             number.text = ""
-        }else{
+        }else if sum != 0{
+            sum /= 10
+            if sum >= 0{
+                number.text = "\(sum)"
+            }else{
+                number.text = ""
+            }
+        }else if number.text != ""{
             temp1 = Int(number.text!)!
             temp1 /= 10
             if temp1 != 0{
